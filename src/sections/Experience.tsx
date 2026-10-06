@@ -1,9 +1,10 @@
 // src/sections/Experience.tsx
 import React from 'react';
 import fotoPerfil from '../assets/perfil.jpeg';
+import ExperienceCard, { type ExperienceItem } from '../components/ExperienceCard';
 
 const Experience: React.FC = () => {
-  const experiences = [
+  const experiences: ExperienceItem[] = [
     {
       id: 1,
       role: 'Practicante Full Stack Developer',
@@ -12,6 +13,17 @@ const Experience: React.FC = () => {
       hours: '1,440 horas acumuladas · 8-9 meses de prácticas preprofesionales',
       description:
         'Proyecto web full stack con Node.js, Express, Vue.js, PostgreSQL, MySQL y metodología Scrum.',
+
+    },
+    {
+      id: 2,
+      role: 'Asistente de TIC - Aplicaciones y Soporte',
+      company: 'Agencia Nacional de Transito',
+      period: 'Julio 2026 - octubre 2026',
+      hours: null,
+      description:
+        'Apoyo en el área de TIC, brindando soporte técnico y asistencia en aplicaciones en su debida documentacion',
+
     },
   ];
 
@@ -56,47 +68,19 @@ const Experience: React.FC = () => {
             Experiencia
           </h2>
 
-          <div className="relative border-l border-slate-600 ml-4 md:ml-6 pb-4">
-
-            {experiences.map((exp) => (
-              <div key={exp.id} className="relative pl-8 md:pl-12 mb-16">
-                <span className="absolute -left-2.75 top-6 w-5 h-5 bg-sky-400 rounded-full border-4 border-[#0f172a] shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
-
-                <div className="border border-slate-700 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-10 hover:border-sky-400/30 transition-colors">
-                  <div className="flex-1">
-                    <h3 className="text-sky-400 text-xl md:text-2xl font-medium mb-2">
-                      {exp.role}
-                    </h3>
-                    <p className="text-slate-300 font-medium mb-2">{exp.company}</p>
-                    <p className="text-slate-400 text-sm mb-1">{exp.period}</p>
-                    <p className="text-slate-500 text-xs leading-relaxed">{exp.hours}</p>
-                  </div>
-
-                  <div className="hidden md:block w-px bg-slate-600" />
-                  <div className="md:hidden h-px w-full bg-slate-600 my-2" />
-
-                  <div className="flex-1 flex items-center">
-                    <p className="text-slate-300 text-base md:text-lg leading-relaxed">
-                      {exp.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Continuara*/}
-            <div className="relative">
-              <div className="absolute bottom-0 left-0 right-6 h-px bg-slate-600" />
-              <div className="absolute -right-0.75 -bottom-2.25 w-5 h-5 bg-sky-400 rounded-full border-4 border-[#0f172a] shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
-              <div className="flex justify-end pr-12 pb-6">
-                <button className="border border-slate-500 hover:border-sky-400 text-sky-400 bg-[#0f172a] px-8 py-2 rounded-full font-medium transition-colors">
-                  Continuará...
-                </button>
-              </div>
+          <div className="ml-4 md:ml-6">
+            <div className="border-l border-slate-600">
+              {experiences.map((exp) => (
+                <ExperienceCard key={exp.id} experience={exp} />
+              ))}
             </div>
 
+            <div className="relative h-16 rounded-bl-2xl border-l border-b border-slate-600">
+              <span className="absolute right-0 bottom-0 translate-y-1/2 whitespace-nowrap rounded-full border border-sky-400/60 bg-[#0f172a] px-4 sm:px-8 py-2 text-sm sm:text-base font-medium text-sky-400">
+                Mi camino continúa
+              </span>
+            </div>
           </div>
-
         </div>
       </div>
     </section>
