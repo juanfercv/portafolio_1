@@ -29,7 +29,7 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experiencia">
-      <div className="min-h-screen flex flex-col justify-center px-6 pl-20 md:pl-32 py-20 ">
+      <div className="flex flex-col px-6 py-16 pl-20 md:py-20 md:pl-32">
         <div className="max-w-5xl w-full mx-auto">
 
           {/* ── ProfileHeader ── */}

@@ -6,33 +6,29 @@ const Navbar: React.FC = () => {
     { name: 'Experiencia', href: '#experiencia' },
     { name: 'Proyectos', href: '#proyectos' },
     { name: 'Sobre mí', href: '#sobre-mi' },
+    { name: 'Skills', href: '#skills' },
     { name: 'Contacto', href: '#contacto' },
   ];
 
   return (
     <>
-      {/* Logo fijo en la esquina superior izquierda */}
-      <div className="fixed top-8 left-8 z-50">
-        <h1 className="text-3xl font-bold font-mono tracking-tighter cursor-pointer">
+      <div className="fixed left-8 top-8 z-50">
+        <h1 className="cursor-pointer font-mono text-3xl font-bold tracking-tighter">
           <span className="text-white">JF</span>
           <span className="text-sky-400">DEV</span>
         </h1>
       </div>
 
-      {/* Navegación lateral vertical */}
-      <nav className="fixed left-8 top-1/2 transform -translate-y-1/2 z-50">
-        <ul className="flex flex-col gap-10">
+      <nav className="fixed left-8 top-1/2 z-50 -translate-y-1/2">
+        <ul className="flex flex-col gap-8">
           {navLinks.map((link) => (
             <li key={link.href} className="group relative flex items-center">
               <a
                 href={link.href}
-                // Las "bolitas" de navegación
-                className="block w-5 h-5 bg-slate-300 rounded-full hover:bg-sky-400 transition-all duration-300 shadow-md"
+                className="block h-5 w-5 rounded-full bg-slate-300 shadow-md transition-all duration-300 hover:bg-sky-400"
                 aria-label={link.name}
-              ></a>
-              
-              {/* Tooltip emergente al hacer hover */}
-              <span className="absolute left-10 bg-slate-800 border border-slate-700 text-sky-400 text-sm font-medium px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-lg">
+              />
+              <span className="pointer-events-none absolute left-10 whitespace-nowrap rounded border border-slate-700 bg-slate-800 px-3 py-1 text-sm font-medium text-sky-400 opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100">
                 {link.name}
               </span>
             </li>
